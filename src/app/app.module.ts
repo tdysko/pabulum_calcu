@@ -25,6 +25,7 @@ import { DetailsDisplayComponent } from './shared/details-display/details-displa
 import { ProductDisplayComponent } from './shared/details-display/product-display/product-display/product-display.component';
 import { IndicatorsComponent } from './shared/indicators/indicators.component';
 import { BasicProductIndicatorsComponent } from './shared/indicators/basic-product-indicators/basic-product-indicators.component';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { BasicProductIndicatorsComponent } from './shared/indicators/basic-produ
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AutocompleteLibModule
   ],
   providers: [RequirementsdataService],
   bootstrap: [AppComponent]

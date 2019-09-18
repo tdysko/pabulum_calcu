@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IndicatorsComponent } from '../indicators.component';
-import { KeyValue } from '@angular/common';
 import { Product, Requirement } from 'src/app/product.model';
 import { Subject } from 'rxjs';
 

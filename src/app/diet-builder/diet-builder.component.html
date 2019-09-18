@@ -4,7 +4,7 @@
         <table
             style="width: 90%; height: 80%; margin-left: 5%; margin-top: 5%; border: 1px solid black; border-radius: 5px">
             <thead>
-                <th style="width: 60%; text-align: left; padding-left: 15%">
+                <th style="width: 50%; text-align: left; padding-left: 12%">
                     Name
                 </th>
                 <th style="width: 10%">
@@ -16,19 +16,55 @@
                 <th style="width: 10%">
                     Fats
                 </th>
-                <th style="width: 10%; padding-right: 5%">
+                <th style="width: 10%; padding-right: 2%">
                     Energy
+                </th>
+                <th style="width: 10%">
+
                 </th>
             </thead>
             <tbody>
-
+                <tr *ngFor="let product of dietProducts; let i = index">
+                    <td>
+                        <p class="form-control-name">{{product.name}}</p>
+                    </td>
+                    <td>
+                        <p class="form-control">{{product.proteins}}</p>
+                    </td>
+                    <td>
+                        <p class="form-control">{{product.carbs}}</p>
+                    </td>
+                    <td>
+                        <p class="form-control">{{product.fats}}</p>
+                    </td>
+                    <td>
+                        <p class="form-control-delete">
+                            {{ product.proteins * 4 + product.carbs * 4 + product.fats * 9 }}
+                        </p>
+                    </td>
+                    <td style="text-align: center; margin: auto">
+                        <button class="btn btn-default" type="button" (click)="deleteFieldValue(i)">X</button>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
     <div style="text-align: center; height: 100%; width: 25%; float: right; border: 2px solid forestgreen; 
         border-radius: 25px; margin-top: 5px; box-shadow: 5px 0px 25px">
-        <input type="text"
-            style="float: left; height: 5%; width: 80%; margin: auto; margin-top: 15%; margin-left: 10%; text-align: center" />
+        <div class="ng-autocomplete">
+            <ng-autocomplete [data]="data" [searchKeyword]="keyword" (selected)='selectEvent($event)'
+                (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate">
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item.name"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
         <div style="float: left; border: 2px solid red; height: 65%; margin-top: 15%; width: 86%; margin-left: 7%;">
             <div style="display: flex; flex-direction: column; height: 100%;">
                 <div style="border: 2px solid green; flex: 3">

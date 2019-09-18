@@ -16,7 +16,7 @@
                 <th style="width: 10%">
                     Fats
                 </th>
-                <th style="width: 10%; padding-right: 2%">
+                <th style="width: 10%; padding-right: 1.25%; text-align: right">
                     Energy
                 </th>
                 <th style="width: 10%">
@@ -39,7 +39,7 @@
                     </td>
                     <td>
                         <p class="form-control-delete">
-                            {{ product.proteins * 4 + product.carbs * 4 + product.fats * 9 }}
+                            {{ (product.proteins * 4 + product.carbs * 4 + product.fats * 9).toPrecision(5) }}
                         </p>
                     </td>
                     <td style="text-align: center; margin: auto">
@@ -69,15 +69,15 @@
             <div style="display: flex; flex-direction: column; height: 100%;">
                 <div style="border: 2px solid green; flex: 3">
                     <div>Proteins</div>
-                    <div></div>
+                    <div>{{getSummaryProteins()}}</div>
                 </div>
                 <div style="border: 2px solid blue; flex: 3">
                     <div>Carbohydrates</div>
-                    <div></div>
+                    <div>{{getSummaryCarbs()}}</div>
                 </div>
                 <div style="border: 2px solid orange; flex: 3">
                     <div>Fats</div>
-                    <div></div>
+                    <div>{{getSummaryFats()}}</div>
                 </div>
                 <div style="border: 2px solid orange; flex: 3">
                     <div>Energy</div>

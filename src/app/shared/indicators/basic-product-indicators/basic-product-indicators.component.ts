@@ -24,17 +24,18 @@ export class BasicProductIndicatorsComponent extends IndicatorsComponent impleme
   }
 
   ngOnInit(): void {
-    const example: KeyValue<string, number> = { key: 'proteins', value: 24 };
-    const example2: KeyValue<string, number> = { key: 'carbohydrates', value: 43 };
-    const example3: KeyValue<string, number> = { key: 'fats', value: 8 };
-    this.heights = [example, example2, example3];
+    this.heights = [
+      { key: 'proteins', value: 24 },
+      { key: 'carbs', value: 43 },
+      { key: 'fats', value: 8 }
+    ];
 
     this.indicatorHeights = {} as Product;
     this.indicatorRadiuses = {} as Product;
 
     this.requirements = {} as Requirement;
     this.requirements.proteins = 24;
-    this.requirements.carbohydrates = 44;
+    this.requirements.carbs = 44;
     this.requirements.fats = 8;
     this.setIndicatorsInitialHeights();
 
@@ -96,6 +97,7 @@ export class BasicProductIndicatorsComponent extends IndicatorsComponent impleme
   }
 
   getIndicatorHeight(key: string): number {
+    console.log()
     return this.product[key] / this.requirements[key];
   }
 

@@ -2,7 +2,7 @@ export interface Product {
     id: number;
     name: string;
     proteins: number;
-    carbohydrates: number;
+    carbs: number;
     fats: number;
 }
 

@@ -1,0 +1,22 @@
+<div id="table-wrapper">
+    <div id="table-scroll">
+        <table style="padding-left: 15px">
+            <thead>
+                <tr>
+                    <th style="margin-bottom: 15px" *ngFor="let header of headers">
+                        <span class="text">{{ header }}</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of dataSource" [ngClass]="{'highlight': selectedRowIndex == product.id}"
+                    (click)="rowClick(product)">
+                    <td style="width: 24px">{{ product.name }}</td>
+                    <td>{{ product.proteins }}</td>
+                    <td>{{ product.carbohydrates }}</td>
+                    <td>{{ product.fats }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

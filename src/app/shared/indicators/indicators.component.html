@@ -1,0 +1,7 @@
+<div style="border-radius: 45px;
+    right: 0; top: 0; height: 100%; width: 100%; margin-bottom: 25px; padding: 25px">
+    <div *ngFor="let height of heights"
+        style="display: inline-block; border: 1px solid black; border-radius: 25px; height: 40%; margin-bottom: 25px"
+        [ngStyle]="{ 'width': getIndicatorWidth() + '%' }">{{ height.key }}
+    </div>
+</div>

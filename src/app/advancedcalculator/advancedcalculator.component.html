@@ -1,0 +1,123 @@
+<div
+  style="display: grid; grid-template-columns: 18% 20% 12% 18% 20% 12%; grid-template-rows: 12% 12% 12% 12%; float: left; width: 30em; margin-top: 1.3%; height: 32em; margin-left: 3%">
+  <div class="GridField">
+    <div class="advrLabel">
+      <label>Weight</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrValue">
+      <input class="advInput" type="text" [(ngModel)]="Waga" value="" (ngModelChange)="WeightChange()" />
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabelMeasure">
+      <label>Kg</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabel">
+      <label>Height</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrValue">
+      <input class="advInput" type="text" [(ngModel)]="Wzrost" value="" (ngModelChange)="HeightChange()" />
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabelMeasure">
+      <label>Centimeters</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabel">
+      <label>Sex</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrValue">
+      <select class="advSelect" [(ngModel)]="Plec" (ngModelChange)="SexChange()">
+        <option value="1">Men</option>
+        <option value="2">Woman</option>
+      </select>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabelMeasure">
+      <label></label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabel">
+      <label style="display: inline">Age</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrValue">
+      <input class="advInput" type="text" [(ngModel)]="Wiek" (ngModelChange)="AgeChange()" />
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabelMeasure">
+      <label>Years</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabel">
+      <label>Goal</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrValue">
+      <select class="advSelect" name="GoalControl" [(ngModel)]="Goal" (ngModelChange)="GoalChange()">
+        <option value="1">Reduction</option>
+        <option value="2" selected="selected">Maintenance</option>
+        <option value="3">Mass building</option>
+      </select>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabel">
+      <label></label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabel">
+      <label style="display: inline">Metabolism</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrValue">
+      <select class="advSelect" [(ngModel)]="LifeStyle" (ngModelChange)="LifeStyleChange()">
+        <option value="3">Low</option>
+        <option value="2">Medium</option>
+        <option value="1">High</option>
+      </select>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabelMeasure">
+      <label></label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabel">
+      <label>BodyType</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrValue">
+      <select class="advSelect" [(ngModel)]="MetaBolism" (ngModelChange)="MetabolismChange()">
+        <option value="1">Ectomorphic</option>
+        <option value="2">Mesomorphic</option>
+        <option value="3">Endomorphic</option>
+      </select>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabelMeasure">
+      <label></label>
+    </div>
+  </div>
+</div>

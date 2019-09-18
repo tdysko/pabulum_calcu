@@ -1,0 +1,19 @@
+<div style="text-align: center; padding-top: 55px; position: absolute; right: 0; top: 0; height: 100%; width: 100%">
+    <div class="displayTextName">
+        {{detail.name}}
+    </div>
+    <div class="displayText">
+        Proteins: {{detail.proteins}}
+    </div>
+    <div class="displayText">
+        Carbohydrates: {{detail.carbohydrates}}
+    </div>
+    <div class="displayText">
+        Fats: {{detail.fats}}
+    </div>
+    <div style="height: 40%; overflow: hidden; position: relative">
+        <app-basic-product-indicators [dataSource]="detail" [requirements]="" [observe]="observe"
+            style="position: absolute; right: 0; top: 0; height: 100%; width: 100%; text-align: center">
+        </app-basic-product-indicators>
+    </div>
+</div>

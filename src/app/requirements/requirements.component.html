@@ -1,0 +1,33 @@
+<div style="padding-top: 0px; margin-top: 0px">
+  <div [hidden]="advancedcalc" style="padding: 0; margin: 0">
+    <app-basiccalculator (childWagaEvent)="waga=$event" (childHeightEvent)="wzrost=$event" (childAgeEvent)="wiek=$event"
+      (childSexEvent)="plec=$event" (childGoalEvent)="goal=$event" [plec]="plec" [wzrost]="wzrost" [waga]="waga"
+      [wiek]="wiek" [goal]="goal">
+    </app-basiccalculator>
+  </div>
+
+  <div [hidden]="!advancedcalc" style="padding: 0; margin: 0">
+    <app-advancedcalculator (childWagaEvent)="waga=$event" (childHeightEvent)="wzrost=$event"
+      (childAgeEvent)="wiek=$event" (childSexEvent)="plec=$event" (childLifeStyleEvent)="lifestyle=$event"
+      (childGoalEvent)="goal=$event" (childMetabolismEvent)="metabolism=$event" [plec]="plec" [wzrost]="wzrost"
+      [waga]="waga" [wiek]="wiek" [goal]="goal">
+    </app-advancedcalculator>
+  </div>
+  <div style="float: right; padding-top: 3%; padding-left: 5%; padding-right: 6.5%">
+    <div style="text-align: center">Your rough daily demand for calories is: {{ tdee }} </div>
+    <br /><br /><br />
+    <div style="text-align: center">
+      <button (click)="ObliczZapotrzebowanie()"
+        style="width: 32em; height: 4em; background: none; border: 2px solid black; border-radius: 5px">Calculate
+        demand</button>
+    </div>
+    <div style="text-align: center; padding-top: 5%">
+      <button (click)="Podstawowe()"
+        style="width: 16em; height: 4em; background: none; border: 2px solid black; border-radius: 5px">Basic
+        calculator</button>
+      <button (click)="Zaawansowane()"
+        style="width: 16em; height: 4em; background: none; border: 2px solid black; border-radius: 5px">Advanced
+        calculator</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div
+  style="display: grid; grid-template-columns: 20% 60% 20%; grid-template-rows: 20% 20% 20% 20%; float: left; width: 20em; padding-top: 0%; height: 100%; margin-left: 3%">
+  <div class="GridField">
+    <div class="advrLabel">
+      <label>Weight</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrValue">
+      <input class="advInput" type="text" [(ngModel)]="Waga" (ngModelChange)="WeightChange()" />
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabel">
+      <label>Kg</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabel">
+      <label>Height</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrValue">
+      <input class="advInput" type="text" [(ngModel)]="Wzrost" (ngModelChange)="HeightChange()" />
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabel">
+      <label>Centimeters</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabel">
+      <label>Sex</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrValue">
+      <select class="advSelect" name="sexControl" [(ngModel)]="Plec" (ngModelChange)="SexChange()">
+        <option value="1">Men</option>
+        <option value="2">Woman</option>
+      </select>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabel">
+      <label></label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabel">
+      <label>Age</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrValue">
+      <input class="advInput" name="WiekControl" type="text" [(ngModel)]="Wiek" (ngModelChange)="AgeChange()" />
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabel">
+      <label>Years</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrLabel">
+      <label>Goal</label>
+    </div>
+  </div>
+  <div class="GridField">
+    <div class="advrValue">
+      <select class="advSelect" name="GoalControl" [(ngModel)]="Goal" (ngModelChange)="GoalChange()">
+        <option value="1">Reduction</option>
+        <option value="2" selected="selected">Maintenance</option>
+        <option value="3">Mass building</option>
+      </select>
+    </div>
+  </div>
+</div>

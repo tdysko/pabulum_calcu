@@ -1,0 +1,13 @@
+<div *ngFor="let height of heights; let i = index"
+    style="display: inline-block; border: 1px solid black; border-radius: 25px; height: 98%; box-shadow: 5px 15px 25px inset; position: relative"
+    [ngStyle]="{ 'width': getIndicatorWidth() + '%', 'margin-left': getIndicatorLeftPadding(i) + '%' }">
+    <div style="background-color: forestgreen; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; 
+        position: absolute; bottom: 0; width: 94%; margin: 2px; margin-bottom: 0.5px; box-shadow: 1px 0px 15px inset"
+        [ngStyle]="{ 'height': indicatorHeights[height.key] + '%', 
+        'border-top-left-radius': indicatorRadiuses[height.key] + 'px', 
+        'border-top-right-radius': indicatorRadiuses[height.key] + 'px',
+        'border-bottom-left-radius': 25 + 'px', 
+        'border-bottom-right-radius': 25 + 'px' }">
+        {{ height.key }}
+    </div>
+</div>

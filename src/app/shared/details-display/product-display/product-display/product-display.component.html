@@ -1,6 +1,6 @@
 <div style="text-align: center; padding-top: 55px; position: absolute; right: 0; top: 0; height: 100%; width: 100%">
-    <div class="displayTextName">
-        {{detail.name}}
+    <div class="displayTextName" style="box-shadow: 0 0 15px">
+        {{detail.name | slice:0:35}}
     </div>
     <div class="displayText">
         Proteins: {{detail.proteins}}

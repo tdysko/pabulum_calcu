@@ -18,7 +18,6 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('creating observable');
     this.ObservedProduct.next(this.productsService.products[0]);
   }
 

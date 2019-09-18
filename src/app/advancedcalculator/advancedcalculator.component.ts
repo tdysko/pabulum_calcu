@@ -29,8 +29,8 @@ export class AdvancedcalculatorComponent {
   rds: RequirementsdataService;
 
   constructor(private _requirementsdataService: RequirementsdataService, private _ageValidator: AgevalidatorService
-    , private _heightValidator: HeightvalidatorService
-    , private _WeightValidator: WeightvalidatorService) {
+    ,         private _heightValidator: HeightvalidatorService
+    ,         private _WeightValidator: WeightvalidatorService) {
     this.rds = _requirementsdataService;
     this._WeightValidator = new WeightvalidatorService();
     this._heightValidator = new HeightvalidatorService();

@@ -10,12 +10,12 @@ import { EventEmitter } from '@angular/core';
 })
 export class TableDisplayComponent {
 
-  @Input() dataSource: Array<Product>;
-  @Input() headers: Array<string>;
-  @Input('observe') detail: Subject<any>;
-  @Output() productChange: EventEmitter<Product> = new EventEmitter();
+  @Input() private dataSource: Array<Product>;
+  @Input() private headers: Array<string>;
+  @Input() private observe: Subject<any>;
+  @Output() private productChange: EventEmitter<Product> = new EventEmitter();
 
-  selectedRowIndex: number = 1;
+  selectedRowIndex = 1;
 
   rowClick(row: Product): void {
     this.highlight(row);

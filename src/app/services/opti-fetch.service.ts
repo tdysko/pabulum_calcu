@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RequirementsData, RequirementsdataService } from 'src/app/requirementsdata.service'
+import { RequirementsData, RequirementsdataService } from 'src/app/requirementsdata.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 

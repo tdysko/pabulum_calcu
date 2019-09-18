@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
 })
 export class DetailsDisplayComponent {
 
-  @Input() observe: Subject<any>;
+  @Input() public observe: Subject<any>;
 
-  @Input() detail: any;
+  @Input() public detail: any;
 }

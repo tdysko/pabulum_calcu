@@ -11,11 +11,11 @@ export class ProductDisplayComponent extends DetailsDisplayComponent implements 
 
   ngOnInit() {
     this.observe.subscribe((x: Product) => {
-      this.updateProduct(x)
+      this.updateProduct(x);
     });
   }
 
   updateProduct(x: Product): void {
     this.detail = x;
-  };
+  }
 }

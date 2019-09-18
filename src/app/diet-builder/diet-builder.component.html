@@ -1,7 +1,7 @@
 <div style="position: absolute; left: 5%; width: 90%; height: 28em">
     <div style="display: inline-flex; height: 100%; width: 68%; float: left; border: 2px solid forestgreen; 
         border-radius: 25px; margin-top: 5px; box-shadow: 5px 0px 25px">
-        <table
+        <table class="dietProducts"
             style="width: 90%; height: 80%; margin-left: 5%; margin-top: 5%; border: 1px solid black; border-radius: 5px">
             <thead>
                 <th style="width: 50%; text-align: left; padding-left: 12%">
@@ -24,7 +24,7 @@
                 </th>
             </thead>
             <tbody>
-                <tr *ngFor="let product of dietProducts; let i = index">
+                <tr *ngFor="let product of dietProducts; let i = index" style="line-height: 5%">
                     <td>
                         <p class="form-control-name">{{product.name}}</p>
                     </td>

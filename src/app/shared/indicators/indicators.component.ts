@@ -9,9 +9,9 @@ import { Requirement } from 'src/app/product.model';
 })
 export class IndicatorsComponent {
 
-  @Input() dataSource: KeyValue<string, number>[];
-  @Input() requirements: Requirement;
-  heights: KeyValue<string, number>[];
+  @Input() private dataSource: KeyValue<string, number>[];
+  @Input() public requirements: Requirement;
+  public heights: KeyValue<string, number>[];
 
   constructor() { }
 

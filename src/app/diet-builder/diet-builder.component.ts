@@ -9,16 +9,16 @@ import { Product } from '../product.model';
 })
 export class DietBuilderComponent implements OnInit {
 
-  keyword = 'name';
-  data = this.productsService.products;
-  dietProducts: Array<Product> = new Array<Product>();
-  dietSummary: Product;
+  private keyword = 'name';
+  private data = this.productsService.products;
+  private dietProducts: Array<Product> = new Array<Product>();
+  private dietSummary: Product;
 
   constructor(@Inject(ProductsService) private productsService) {
     this.dietSummary = {
       id: 0,
       proteins: 0,
-      name: "Summary",
+      name: 'Summary',
       carbs: 0,
       fats: 0
     };
@@ -35,27 +35,27 @@ export class DietBuilderComponent implements OnInit {
   }
 
   getSummaryProteins(): number {
-    var proteins: number = 0;
+    let proteins = 0;
     for (const product of this.dietProducts) {
       proteins = proteins + product.proteins;
     }
-    return proteins;
+    return parseFloat(proteins.toPrecision(5));
   }
 
   getSummaryCarbs(): number {
-    var carbs: number = 0;
+    let carbs = 0;
     for (const product of this.dietProducts) {
       carbs = carbs + product.proteins;
     }
-    return carbs;
+    return parseFloat(carbs.toPrecision(5));
   }
 
   getSummaryFats(): number {
-    var fats: number = 0;
+    let fats = 0;
     for (const product of this.dietProducts) {
       fats = fats + product.proteins;
     }
-    return fats;
+    return parseFloat(fats.toPrecision(5));
   }
 
   addToSummary(product) {

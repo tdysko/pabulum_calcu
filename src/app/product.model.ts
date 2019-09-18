@@ -7,6 +7,6 @@ export interface Product {
 }
 
 export interface Requirement extends Product {
-
+    dateCreated: Date;
 }
 

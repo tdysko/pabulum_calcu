@@ -22,7 +22,7 @@ export class ProductsComponent implements OnInit {
   }
 
   productSelectionChange(selectedProduct: Product): void {
-    this.ObservedProduct.next(selectedProduct)
+    this.ObservedProduct.next(selectedProduct);
   }
 
 }

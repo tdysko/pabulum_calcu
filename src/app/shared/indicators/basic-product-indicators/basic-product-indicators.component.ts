@@ -11,8 +11,8 @@ import { Subject } from 'rxjs';
 export class BasicProductIndicatorsComponent extends IndicatorsComponent implements OnInit {
 
   @Input() observe: Subject<any>;
-  public indicatorHeights: Product;
-  public indicatorRadiuses: Product;
+  private indicatorHeights: Product;
+  private indicatorRadiuses: Product;
   private product: Product;
 
   constructor() {
@@ -46,7 +46,9 @@ export class BasicProductIndicatorsComponent extends IndicatorsComponent impleme
 
   setIndicatorsHeights(): void {
     for (const property of Object.keys(this.product)) {
-      this.indicatorHeights[property] = ((this.getIndicatorHeight(property) / 1) * 100) > 98 ? 98 : (this.getIndicatorHeight(property) / 1) * 100;
+      this.indicatorHeights[property] =
+        ((this.getIndicatorHeight(property) / 1) * 100) > 98 ? 98 :
+          (this.getIndicatorHeight(property) / 1) * 100;
     }
     this.setIndicatorRadius();
   }
@@ -96,7 +98,7 @@ export class BasicProductIndicatorsComponent extends IndicatorsComponent impleme
   }
 
   getIndicatorHeight(key: string): number {
-    console.log()
+    console.log();
     return this.product[key] / this.requirements[key];
   }
 

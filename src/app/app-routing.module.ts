@@ -9,6 +9,7 @@ import { ContactComponent } from './contact/contact.component';
 import { WhattoexpectComponent } from './whattoexpect/whattoexpect.component';
 import { DietBuilderComponent } from './diet-builder/diet-builder.component';
 import { ProductsComponent } from './products/products.component';
+import { MeasuresComponent } from './measures/measures.component';
 
 const routes: Routes = [
   { path: 'diets', component: DietsComponent },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'home', component: HomeComponent },
   { path: '', component: HomeComponent },
-  { path: 'whattoexpect', component: WhattoexpectComponent }
+  { path: 'whattoexpect', component: WhattoexpectComponent },
+  { path: 'measures', component: MeasuresComponent }
 ];
 
 @NgModule({

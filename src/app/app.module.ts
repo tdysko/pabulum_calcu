@@ -26,6 +26,7 @@ import { ProductDisplayComponent } from './shared/details-display/product-displa
 import { IndicatorsComponent } from './shared/indicators/indicators.component';
 import { BasicProductIndicatorsComponent } from './shared/indicators/basic-product-indicators/basic-product-indicators.component';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import { MeasuresComponent } from './measures/measures.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
     DetailsDisplayComponent,
     ProductDisplayComponent,
     IndicatorsComponent,
-    BasicProductIndicatorsComponent
+    BasicProductIndicatorsComponent,
+    MeasuresComponent
   ],
   imports: [
     BrowserModule,

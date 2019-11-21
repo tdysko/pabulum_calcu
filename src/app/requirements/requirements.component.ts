@@ -12,15 +12,15 @@ import { WeightvalidatorService } from '../services/weightvalidator.service';
 export class RequirementsComponent implements OnInit {
 
   constructor(private _requirementsdataService: RequirementsdataService, private _ageValidator: AgevalidatorService
-    ,         private _heightValidator: HeightvalidatorService
-    ,         private _WeightValidator: WeightvalidatorService) {
+    , private _heightValidator: HeightvalidatorService
+    , private _WeightValidator: WeightvalidatorService) {
   }
 
   public tdee = 0;
-  public waga: number;
-  public wzrost: number;
-  public plec: number;
-  public wiek: number;
+  public weight: number;
+  public height: number;
+  public sex: number;
+  public age: number;
   public time = 0;
   public intensity = 0;
   public workouttype = 0;
@@ -46,6 +46,7 @@ export class RequirementsComponent implements OnInit {
   }
 
   ObliczZapotrzebowanie() {
+    console.log('obliczam dla wagi: ' + this.weight);
     this.tdee = this._requirementsdataService.ObliczZapotrzebowanie();
     // this.rds.SetRequirements((this.tdee * 0.15) / 4, (this.tdee * 0.55) / 4, (this.tdee * 0.3) / 9);
   }

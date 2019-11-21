@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { RequirementsdataService } from '../requirementsdata.service';
 
 @Component({
@@ -7,11 +7,11 @@ import { RequirementsdataService } from '../requirementsdata.service';
   styleUrls: ['./basiccalculator.component.scss']
 })
 export class BasiccalculatorComponent implements OnInit {
-  @Input() waga: number;
-  @Input() wzrost: number;
-  @Input() plec: number;
-  @Input() wiek: number;
-  @Input() goal = 2;
+  @Input() Waga: number;
+  @Input() Wzrost: number;
+  @Input() Plec: number;
+  @Input() Wiek: number;
+  @Input() Goal = 2;
 
   @Output() public childWagaEvent = new EventEmitter();
   @Output() public childAgeEvent = new EventEmitter();
@@ -25,30 +25,31 @@ export class BasiccalculatorComponent implements OnInit {
     this.rds = _requirementsdataService;
   }
   ngOnInit() {
-    this.rds.setHeight(this.wzrost);
-    this.rds.setWeight(this.waga);
-    this.rds.setSex(this.plec);
-    this.rds.setAge(this.wiek);
-    this.rds.setGoal(this.goal);
+    this.rds.setHeight(this.Wzrost);
+    this.rds.setWeight(this.Waga);
+    this.rds.setSex(this.Plec);
+    this.rds.setAge(this.Wiek);
+    this.rds.setGoal(this.Goal);
   }
   WeightChange() {
-    this.rds.setWeight(this.waga);
-    this.childWagaEvent.emit(this.waga);
+    console.log('weight change: ' + this.Waga);
+    this.rds.setWeight(this.Waga);
+    this.childWagaEvent.emit(this.Waga);
   }
   HeightChange() {
-    this.rds.setHeight(this.wzrost);
-    this.childHeightEvent.emit(this.wzrost);
+    this.rds.setHeight(this.Wzrost);
+    this.childHeightEvent.emit(this.Wzrost);
   }
   AgeChange() {
-    this.rds.setAge(this.wiek);
-    this.childAgeEvent.emit(this.wiek);
+    this.rds.setAge(this.Wiek);
+    this.childAgeEvent.emit(this.Wiek);
   }
   SexChange() {
-    this.rds.setSex(this.plec);
-    this.childSexEvent.emit(this.plec);
+    this.rds.setSex(this.Plec);
+    this.childSexEvent.emit(this.Plec);
   }
   GoalChange() {
-    this.rds.setGoal(this.goal);
-    this.childGoalEvent.emit(this.goal);
+    this.rds.setGoal(this.Goal);
+    this.childGoalEvent.emit(this.Goal);
   }
 }

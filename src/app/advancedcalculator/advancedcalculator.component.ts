@@ -11,11 +11,11 @@ import { WeightvalidatorService } from '../services/weightvalidator.service';
 })
 export class AdvancedcalculatorComponent {
 
-  @Input() waga: number;
-  @Input() wzrost: number;
-  @Input() plec: number;
-  @Input() wiek: number;
-  @Input() goal: number;
+  @Input() Waga: number;
+  @Input() Wzrost: number;
+  @Input() Plec: number;
+  @Input() Wiek: number;
+  @Input() Goal: number;
   LifeStyle = 0;
   MetaBolism = 0;
 
@@ -29,8 +29,8 @@ export class AdvancedcalculatorComponent {
   rds: RequirementsdataService;
 
   constructor(private _requirementsdataService: RequirementsdataService, private _ageValidator: AgevalidatorService
-    ,         private _heightValidator: HeightvalidatorService
-    ,         private _WeightValidator: WeightvalidatorService) {
+    , private _heightValidator: HeightvalidatorService
+    , private _WeightValidator: WeightvalidatorService) {
     this.rds = _requirementsdataService;
     this._WeightValidator = new WeightvalidatorService();
     this._heightValidator = new HeightvalidatorService();
@@ -38,27 +38,27 @@ export class AdvancedcalculatorComponent {
   }
 
   WeightChange() {
-    this.rds.setWeight(this.waga);
-    this.childWagaEvent.emit(this.waga);
-    this._WeightValidator.validate(this.waga);
+    this.rds.setWeight(this.Waga);
+    this.childWagaEvent.emit(this.Waga);
+    this._WeightValidator.validate(this.Waga);
   }
   HeightChange() {
-    this.rds.setHeight(this.wzrost);
-    this.childHeightEvent.emit(this.wzrost);
-    this._heightValidator.validate(this.wzrost);
+    this.rds.setHeight(this.Wzrost);
+    this.childHeightEvent.emit(this.Wzrost);
+    this._heightValidator.validate(this.Wzrost);
   }
   AgeChange() {
-    this.rds.setAge(this.wiek);
-    this.childAgeEvent.emit(this.wiek);
-    this._ageValidator.validate(this.wiek);
+    this.rds.setAge(this.Wiek);
+    this.childAgeEvent.emit(this.Wiek);
+    this._ageValidator.validate(this.Wiek);
   }
   SexChange() {
-    this.rds.setSex(this.plec);
-    this.childSexEvent.emit(this.plec);
+    this.rds.setSex(this.Plec);
+    this.childSexEvent.emit(this.Plec);
   }
   GoalChange() {
-    this.rds.setGoal(this.goal);
-    this.childGoalEvent.emit(this.goal);
+    this.rds.setGoal(this.Goal);
+    this.childGoalEvent.emit(this.Goal);
   }
   LifeStyleChange() {
     this.rds.setLifeStyle(this.LifeStyle);

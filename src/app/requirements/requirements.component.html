@@ -1,16 +1,16 @@
 <div style="padding-top: 0px; margin-top: 0px">
   <div [hidden]="advancedcalc" style="padding: 0; margin: 0">
-    <app-basiccalculator (childWagaEvent)="waga=$event" (childHeightEvent)="wzrost=$event" (childAgeEvent)="wiek=$event"
-      (childSexEvent)="plec=$event" (childGoalEvent)="goal=$event" [plec]="plec" [wzrost]="wzrost" [waga]="waga"
-      [wiek]="wiek" [goal]="goal">
+    <app-basiccalculator (childWagaEvent)="weight=$event" (childHeightEvent)="height=$event"
+      (childAgeEvent)="age=$event" (childSexEvent)="sex=$event" (childGoalEvent)="goal=$event" [Plec]="sex"
+      [Wzrost]="height" [Waga]="weight" [Wiek]="age" [Goal]="goal">
     </app-basiccalculator>
   </div>
 
   <div [hidden]="!advancedcalc" style="padding: 0; margin: 0">
-    <app-advancedcalculator (childWagaEvent)="waga=$event" (childHeightEvent)="wzrost=$event"
-      (childAgeEvent)="wiek=$event" (childSexEvent)="plec=$event" (childLifeStyleEvent)="lifestyle=$event"
-      (childGoalEvent)="goal=$event" (childMetabolismEvent)="metabolism=$event" [plec]="plec" [wzrost]="wzrost"
-      [waga]="waga" [wiek]="wiek" [goal]="goal">
+    <app-advancedcalculator (childWagaEvent)="weight=$event" (childHeightEvent)="height=$event"
+      (childAgeEvent)="age=$event" (childSexEvent)="sex=$event" (childLifeStyleEvent)="lifestyle=$event"
+      (childGoalEvent)="goal=$event" (childMetabolismEvent)="metabolism=$event" [Plec]="sex" [Wzrost]="height"
+      [Waga]="weight" [Wiek]="age" [Goal]="goal">
     </app-advancedcalculator>
   </div>
   <div style="float: right; padding-top: 3%; padding-left: 5%; padding-right: 6.5%">

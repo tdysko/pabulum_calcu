@@ -47,8 +47,9 @@ export class BasicProductIndicatorsComponent extends IndicatorsComponent impleme
   setIndicatorsHeights(): void {
     for (const property of Object.keys(this.product)) {
       this.indicatorHeights[property] =
-        ((this.getIndicatorHeight(property) / 1) * 100) > 98 ? 98 :
-          (this.getIndicatorHeight(property) / 1) * 100;
+        ((this.getIndicatorHeight(property) / 1) * 100) > 4 ?
+          ((this.getIndicatorHeight(property) / 1) * 100) > 98 ? 98 :
+            (this.getIndicatorHeight(property) / 1) * 100 : 0;
     }
     this.setIndicatorRadius();
   }

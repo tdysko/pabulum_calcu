@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ProductsService } from '../services/products.service';
 import { Product } from '../product.model';
+import { RequirementsdataService } from '../requirementsdata.service';
 
 @Component({
   selector: 'app-diet-builder',
@@ -14,7 +15,8 @@ export class DietBuilderComponent implements OnInit {
   private dietProducts: Array<Product> = new Array<Product>();
   private dietSummary: Product;
 
-  constructor(@Inject(ProductsService) private productsService) {
+  constructor(@Inject(ProductsService) private productsService,
+    private _requirementsdataService: RequirementsdataService) {
     this.dietSummary = {
       id: 0,
       proteins: 0,
@@ -24,14 +26,12 @@ export class DietBuilderComponent implements OnInit {
     };
   }
 
-
   ngOnInit() {
   }
 
   selectEvent(item) {
     this.dietProducts.push(item);
     this.addToSummary(item);
-    console.log(item);
   }
 
   getSummaryProteins(): number {
@@ -59,15 +59,23 @@ export class DietBuilderComponent implements OnInit {
   }
 
   addToSummary(product) {
-    this.dietSummary.proteins = parseFloat((this.dietSummary.proteins + product.proteins).toPrecision(5));
-    this.dietSummary.carbs = parseFloat((this.dietSummary.carbs + product.carbs).toPrecision(5));
-    this.dietSummary.fats = parseFloat((this.dietSummary.fats + product.fats).toPrecision(5));
+    this.dietSummary.proteins = this.addToPrecision(this.dietSummary.proteins, product.proteins, 5);
+    this.dietSummary.carbs = this.addToPrecision(this.dietSummary.carbs, product.carbs, 5);
+    this.dietSummary.fats = this.addToPrecision(this.dietSummary.fats, product.fats, 5);
   }
 
   removeFromSummary(product) {
-    this.dietSummary.proteins = parseFloat((this.dietSummary.proteins - product.proteins).toPrecision(5));
-    this.dietSummary.carbs = parseFloat((this.dietSummary.carbs - product.carbs).toPrecision(5));
-    this.dietSummary.fats = parseFloat((this.dietSummary.fats - product.fats).toPrecision(5));
+    this.dietSummary.proteins = this.subtractToPrecision(this.dietSummary.proteins, product.proteins, 5);
+    this.dietSummary.carbs = this.subtractToPrecision(this.dietSummary.carbs, product.carbs, 5);
+    this.dietSummary.fats = this.subtractToPrecision(this.dietSummary.fats, product.fats, 5);
+  }
+
+  subtractToPrecision(number1: number, number2: number, precision: number): number {
+    return parseFloat((number1 - number2).toPrecision(precision))
+  }
+
+  addToPrecision(number1: number, number2: number, precision: number): number {
+    return parseFloat((number1 + number2).toPrecision(precision))
   }
 
   onChangeSearch(val: string) {

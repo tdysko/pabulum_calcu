@@ -1,4 +1,4 @@
-<div style="padding-top: 0px; margin-top: 0px">
+<div style="position: absolute; height: 75%; width: 80%">
   <div [hidden]="advancedcalc" style="padding: 0; margin: 0">
     <app-basiccalculator (childWagaEvent)="weight=$event" (childHeightEvent)="height=$event"
       (childAgeEvent)="age=$event" (childSexEvent)="sex=$event" (childGoalEvent)="goal=$event" [Plec]="sex"
@@ -13,7 +13,8 @@
       [Waga]="weight" [Wiek]="age" [Goal]="goal">
     </app-advancedcalculator>
   </div>
-  <div style="float: right; padding-top: 3%; padding-left: 5%; padding-right: 6.5%">
+  <div
+    style="display: inline-block; position: absolute; right: 0%; padding-top: 3%; padding-left: 5%; padding-right: 6.5%">
     <div style="text-align: center">Your rough daily demand for calories is: {{ tdee }} </div>
     <br /><br /><br />
     <div style="text-align: center">

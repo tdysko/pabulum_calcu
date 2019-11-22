@@ -46,7 +46,6 @@ export class RequirementsComponent implements OnInit {
   }
 
   ObliczZapotrzebowanie() {
-    console.log('obliczam dla wagi: ' + this.weight);
     this.tdee = this._requirementsdataService.ObliczZapotrzebowanie();
     // this.rds.SetRequirements((this.tdee * 0.15) / 4, (this.tdee * 0.55) / 4, (this.tdee * 0.3) / 9);
   }

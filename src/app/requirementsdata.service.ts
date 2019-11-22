@@ -49,9 +49,9 @@ export class RequirementsdataService {
 
   public SetRequirements(ProtsRequired: number, CarbsRequired: number, FtsReqiured: number) {
     // this.Requirements = new RequirementsData();
-    this.Requirements.ProteinsRequired = ProtsRequired;
-    this.Requirements.CarbohydratessRequired = CarbsRequired;
-    this.Requirements.FatsRequired = FtsReqiured;
+    this.Requirements.ProteinsRequired = parseFloat(ProtsRequired.toPrecision(5));
+    this.Requirements.CarbohydratessRequired = parseFloat(CarbsRequired.toPrecision(5));
+    this.Requirements.FatsRequired = parseFloat(FtsReqiured.toPrecision(5));
   }
 
   ObliczZapotrzebowanie(): number {

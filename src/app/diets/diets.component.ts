@@ -7,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DietsComponent implements OnInit {
 
-  appTitle = 'OutpostDieto';
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

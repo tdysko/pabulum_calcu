@@ -22,14 +22,20 @@
     "@angular/router": "~8.1.1",
     "angular-ng-autocomplete": "^1.1.14",
     "core-js": "^2.5.4",
+    "gpx-parse": "^0.10.4",
     "material-ui": "^0.20.2",
     "rxjs": "~6.5.2",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.801.1",
+<<<<<<< Updated upstream
+    "@angular-devkit/build-angular": "^0.801.3",
     "@angular/cli": "^8.1.1",
+=======
+    "@angular-devkit/build-angular": "^0.1002.0",
+    "@angular/cli": "^8.3.29",
+>>>>>>> Stashed changes
     "@angular/compiler-cli": "~8.1.1",
     "@angular/language-service": "~8.1.1",
     "@types/jasmine": "~2.8.8",

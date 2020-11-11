@@ -10,8 +10,10 @@ import { WhattoexpectComponent } from './whattoexpect/whattoexpect.component';
 import { DietBuilderComponent } from './diet-builder/diet-builder.component';
 import { ProductsComponent } from './products/products.component';
 import { MeasuresComponent } from './measures/measures.component';
+import { TrainingsComponent } from './trainings/trainings.component';
 
 const routes: Routes = [
+  { path: 'trainings', component: TrainingsComponent },
   { path: 'diets', component: DietsComponent },
   { path: 'requirements', component: RequirementsComponent },
   { path: 'fullnaturaldiet', component: FullnaturaldietComponent },

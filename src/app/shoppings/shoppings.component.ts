@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { tesseract } from 'node-tesseract-ocr';
+import * as tess from 'tesseract.js';
 @Component({
   selector: 'app-shoppings',
   templateUrl: './shoppings.component.html',
@@ -21,20 +21,17 @@ export class ShoppingsComponent implements OnInit {
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
 
-    const config = {
-      lang: "eng",
-      oem: 1,
-      psm: 3,
-    }
+    console.log(this.fileToUpload);
+    //const { createWorker } = require('tesseract.js');
+    //console.log(createWorker);
+    console.log(tess);
 
-    tesseract.recognize(this.fileToUpload.name, config)
-      .then(text => {
-        console.log("Result:", text)
+    tess.recognize(this.fileToUpload)
+      .then((res: any) => {
+        console.log(res);
       })
-      .catch(error => {
-        console.log(error.message)
-      })
-  }
+      .catch(console.error);
+  };
 
   parseFile(fileString: any) {
     console.log(fileString);

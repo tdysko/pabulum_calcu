@@ -21,16 +21,24 @@ export class ShoppingsComponent implements OnInit {
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
 
-    console.log(this.fileToUpload);
-    //const { createWorker } = require('tesseract.js');
-    //console.log(createWorker);
-    console.log(tess);
+    const worker = tess.createWorker();
 
-    tess.recognize(this.fileToUpload)
-      .then((res: any) => {
-        console.log(res);
-      })
-      .catch(console.error);
+    let that = this;
+
+    async function getTextFromImage() {
+      await worker.load();
+      await worker.loadLanguage('pol');
+      await worker.initialize('pol');
+
+      console.log(that.fileToUpload);
+      console.log('reading');
+      const { data: { text } } = await worker.recognize(that.fileToUpload);
+      console.log(text);
+      console.log('finished reading;')
+      worker.terminate();
+    };
+
+    getTextFromImage();
   };
 
   parseFile(fileString: any) {

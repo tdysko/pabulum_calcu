@@ -4,3 +4,7 @@
     <br />
     <input type="file" id="file" (change)="handleFileInput($event.target.files)">
 </div>
+<br />
+<div id="leafletmap"></div>
+<app-training [totalDistance]="totalDistance" [avgSpeed]="avgSpeed" [totalTime]="totalTime">
+</app-training>

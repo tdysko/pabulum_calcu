@@ -29,6 +29,7 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { MeasuresComponent } from './measures/measures.component';
 import { TrainingsComponent } from './trainings/trainings.component';
 import { ShoppingsComponent } from './shoppings/shoppings.component';
+import { TrainingComponent } from './trainings/training/training.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ShoppingsComponent } from './shoppings/shoppings.component';
     BasicProductIndicatorsComponent,
     MeasuresComponent,
     TrainingsComponent,
-    ShoppingsComponent
+    ShoppingsComponent,
+    TrainingComponent
   ],
   imports: [
     BrowserModule,

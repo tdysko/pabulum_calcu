@@ -1,10 +1,24 @@
-<div class="form-group">
-    <label for="file">Choose File</label>
+<div class="training-container">
+    <div class="form-group" style="font: 1.2vw solid black">
+        <label for="file"
+            style="font-weight: bold; border: 2px solid gray; padding: .6em; padding-left: .8em; padding-right: .8em; border-radius: 25px">Choose
+            File</label>
+        <br />
+        <br />
+        <input type="file" id="file" style="font: 1.2em solid black; border: 1px solid black"
+            (change)="handleFileInput($event.target.files)">
+        <div style="float: right">{{fileToUpload?.name}}</div>
+    </div>
     <br />
     <br />
-    <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+    <app-training
+        style="display: inline-block; width: 35%; margin-left: 2%; border: 2px solid black; border-radius: 25px"
+        [totalDistance]="totalDistance" [avgSpeed]="avgSpeed" [totalTime]="totalTime" [movingTime]="movingTime"
+        [avgMovingSpeed]="avgMovingSpeed" [lowestElevation]="lowestElevation" [highestElevation]="highestElevation"
+        [elevationGain]="elevationGain" [elevationLoss]="elevationLoss" [avgHr]="avgHr" [avgCadence]="avgCadence"
+        [avgTemp]="avgTemp" [workoutName]="workoutName">
+    </app-training>
+    <app-training-map
+        style="width: 55%; float: right; margin-right: 2%; border-radius: 25px; border: 2px solid green; box-shadow: 2px 12px 22px">
+    </app-training-map>
 </div>
-<br />
-<div id="leafletmap"></div>
-<app-training [totalDistance]="totalDistance" [avgSpeed]="avgSpeed" [totalTime]="totalTime">
-</app-training>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import GPX from 'gpx-parser-builder';
 import * as lflyGPX from 'leaflet-gpx';
+import { TrainingSummaryService } from '../services/training-summary.service';
 
 @Component({
   selector: 'app-trainings',
@@ -10,9 +11,26 @@ import * as lflyGPX from 'leaflet-gpx';
 export class TrainingsComponent {
   fileToUpload: File = null;
   gpxtext: string | ArrayBuffer;
+
+  workoutName: string;
   totalDistance: number = 0;
   avgSpeed: number = 0;
-  totalTime: string = '0 h 0 m 0 s';
+  totalTime: number = 0;
+  movingTime: number = 0;
+  avgMovingSpeed: number = 0;
+  lowestElevation: number = 0;
+  highestElevation: number = 0;
+  elevationGain: number = 0;
+  elevationLoss: number = 0;
+  avgHr: number = 0;
+  avgCadence: number = 0;
+  avgTemp: number = 0;
+
+  mapCnt: any;
+
+  constructor(private trainingSummaryService: TrainingSummaryService) {
+
+  }
 
   handleFileInput(files: FileList) {
     let fileReader = new FileReader();
@@ -23,30 +41,71 @@ export class TrainingsComponent {
     fileReader.onload = () => {
       that.gpxtext = fileReader.result;
       let gpxBuilder = that.parseFile(that.gpxtext);
-      that.calculateSummary(gpxBuilder.trk[0].trkseg[0].trkpt);
+      //that.calculateSummary(gpxBuilder.trk[0].trkseg[0].trkpt);
+      console.log(that.fileToUpload);
       that.culculateLeaflySummary(that.gpxtext);
     }
     fileReader.readAsText(this.fileToUpload);
   }
 
   culculateLeaflySummary(gpxFile) {
+    this.mapCnt = lflyGPX.map('leafletmap').setView([51.505, -0.09], 13);
 
-    var map = lflyGPX.map('leafletmap');
-    lflyGPX.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'Map data &copy; <a href="http://www.osm.org">OpenStreetMap</a>'
-    }).addTo(map);
+    lflyGPX.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+      maxZoom: 18,
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      id: 'mapbox/streets-v11',
+      tileSize: 512,
+      zoomOffset: -1
+    }).addTo(this.mapCnt);
 
-    var gpx = new lflyGPX.GPX(gpxFile, { async: true }).on('loaded', function (e) {
-      map.fitBounds(e.target.getBounds());
-      console.log(e.target.get_name());
-      console.log(e.target.get_distance());
+    let that = this;
 
-    }).addTo(map);
+    var gpx = new lflyGPX.GPX(gpxFile, {
+      async: true,
+      marker_options: {
+        startIconUrl: '',
+        endIconUrl: '',
+        shadowUrl: ''
+      }
+    }).on('loaded', function (e) {
+      that.mapCnt.fitBounds(e.target.getBounds());
+      that.fillSummaryFields(e);
+    }).addTo(this.mapCnt);
+
+    console.log('map');
+    console.log(this.mapCnt);
+  }
+
+  fillSummaryFields(e) {
+    console.log(e);
+    this.mapCnt.fitBounds(e.target.getBounds());
+
+    this.workoutName = e.target.get_name();
+
+    this.totalDistance = e.target.get_distance() / 1000;
+    this.avgSpeed = e.target.get_total_speed();
+    this.totalTime = e.target.get_total_time();
+
+    this.movingTime = e.target.get_moving_time();
+    this.avgMovingSpeed = e.target.get_moving_speed();
+
+    this.lowestElevation = e.target.get_elevation_min_imp();
+    this.highestElevation = e.target.get_elevation_max();
+
+    this.elevationGain = e.target.get_elevation_gain();
+    this.elevationLoss = e.target.get_elevation_loss();
+
+    this.avgHr = e.target.get_average_hr();
+    this.avgCadence = e.target.get_average_cadence();
+    this.avgTemp = e.target.get_average_temp();
   }
 
   calculateSummary(track: Array<any>) {
+    console.log('asd');
     for (var i = 1; i < track.length; i++) {
-      const wayPointDistance: number = this.getDistanceFromLatLonInKm(
+      const wayPointDistance: number = this.trainingSummaryService.getDistanceFromLatLonInKm(
         track[i].$.lat,
         track[i].$.lon,
         track[i - 1].$.lat,
@@ -58,77 +117,11 @@ export class TrainingsComponent {
       this.totalDistance = this.totalDistance + wayPointDistance;
     }
 
-    this.totalDistance = this.convertTotalDistance(this.totalDistance);
-    this.totalTime = this.getTotalTimeString(track[track.length - 1].time - track[0].time);
 
+    this.totalTime = track[track.length - 1].time - track[0].time;
     let avgSpeed: number = (this.totalDistance / (track[track.length - 1].time - track[0].time)) * 60 * 60 * 1000;
 
     this.avgSpeed = parseFloat(avgSpeed.toString().substring(0, avgSpeed.toString().indexOf('.') + 3));
-  }
-
-  getTotalTimeString(time: number): any {
-    let seconds: number = time / 1000;
-    let minutes: number = seconds / 60;
-    let hours: number = minutes / 60;
-    let result: string = '';
-
-    if (hours >= 1) {
-      hours = Math.floor(hours);
-      result = hours + ' h ';
-
-      minutes = minutes - hours * 60;
-    } else {
-      result = '0 h ';
-    }
-
-    if (minutes >= 1) {
-      minutes = Math.floor(minutes);
-      result = result + minutes + ' m ';
-
-      seconds = seconds - hours * 60 * 60 - minutes * 60;
-    }
-    else {
-      result = result + '0 m';
-    }
-
-    if (seconds >= 1) {
-      seconds = Math.floor(seconds);
-
-      result = result + seconds + ' s';
-    } else {
-      result = result + ' 0 s';
-    }
-
-    return result;
-  }
-
-  convertTotalDistance(totalDistance: number) {
-    let calcTtlDistance: string = '';
-    let dotIndex = this.totalDistance.toString().indexOf('.');
-
-    for (var c = 0; c < dotIndex + 3; c++) {
-      calcTtlDistance = calcTtlDistance + this.totalDistance.toString()[c];
-    }
-
-    return parseFloat(calcTtlDistance);
-  }
-
-  getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
-    var R = 6371; // Radius of the earth in km
-    var dLat = this.deg2rad(lat2 - lat1);  // deg2rad below
-    var dLon = this.deg2rad(lon2 - lon1);
-    var a =
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) *
-      Math.sin(dLon / 2) * Math.sin(dLon / 2)
-      ;
-    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    var d = R * c; // Distance in km
-    return d;
-  }
-
-  deg2rad(deg) {
-    return deg * (Math.PI / 180)
   }
 
   parseFile(fileString: any) {

@@ -1,12 +1,45 @@
-<div>
-    <div>Total time</div>
-    <div>{{totalTime}}</div>
-</div>
-<div>
-    <div>Total distance</div>
-    <div>{{totalDistance}} Kilometers</div>
-</div>
-<div>
-    <div>Average speed</div>
-    <div>{{avgSpeed}} Kilometers / Hour</div>
+<div class="summary-displator">
+    <div class="title">ACTIVITY</div>
+    <div class="grid-container">
+        <div>
+            <div>Total time</div>
+            <div class="grid-cell-value">{{totalTime === 0 ? '00:00:00' : totalTime | date:'HH:mm:ss'}}</div>
+        </div>
+        <div>
+            <div>Total distance</div>
+            <div class="grid-cell-value">{{totalDistance | number : '1.2-2'}} km</div>
+        </div>
+        <div>
+            <div>Average speed</div>
+            <div class="grid-cell-value">{{avgSpeed | number : '1.2-2'}} km / h</div>
+        </div>
+        <div>
+            <div>Moving time</div>
+            <div class="grid-cell-value">{{movingTime === 0 ? 0 : movingTime | date:'HH:mm:ss'}}</div>
+        </div>
+        <div>
+            <div>Average moving speed</div>
+            <div class="grid-cell-value">{{avgMovingSpeed | number : '1.2-2'}} km / h</div>
+        </div>
+        <div>
+            <div>Lowest elevation</div>
+            <div class="grid-cell-value">{{lowestElevation | number : '1.2-2'}} m</div>
+        </div>
+        <div>
+            <div>Highest elevation</div>
+            <div class="grid-cell-value">{{highestElevation | number : '1.2-2'}} m</div>
+        </div>
+        <div>
+            <div>Elevation gain</div>
+            <div class="grid-cell-value">{{elevationGain | number : '1.2-2'}} m</div>
+        </div>
+        <div>
+            <div>Elevation drop</div>
+            <div class="grid-cell-value">{{elevationLoss | number : '1.2-2'}} m</div>
+        </div>
+        <div>
+            <div>Average heart rate</div>
+            <div class="grid-cell-value">{{avgHr | number : '1.2-2'}} m</div>
+        </div>
+    </div>
 </div>

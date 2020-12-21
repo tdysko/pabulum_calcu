@@ -9,11 +9,21 @@ export class TrainingComponent implements OnInit {
 
   @Input() totalDistance: Number;
   @Input() avgSpeed: Number;
-  @Input() totalTime: String = '0 h 0 m 0 s';
+  @Input() totalTime: Date;
+  @Input() workoutName: String;
+
+  @Input() movingTime: any;
+  @Input() avgMovingSpeed: any;
+  @Input() lowestElevation: any;
+  @Input() highestElevation: any;
+  @Input() elevationGain: any;
+  @Input() elevationLoss: any;
+  @Input() avgHr: any;
+  @Input() avgCadence: any;
+  @Input() avgTemp: any;
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

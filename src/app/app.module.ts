@@ -30,6 +30,7 @@ import { MeasuresComponent } from './measures/measures.component';
 import { TrainingsComponent } from './trainings/trainings.component';
 import { ShoppingsComponent } from './shoppings/shoppings.component';
 import { TrainingComponent } from './trainings/training/training.component';
+import { TrainingMapComponent } from './trainings/training/training-map/training-map.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { TrainingComponent } from './trainings/training/training.component';
     MeasuresComponent,
     TrainingsComponent,
     ShoppingsComponent,
-    TrainingComponent
+    TrainingComponent,
+    TrainingMapComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RequirementsdataService } from '../requirementsdata.service';
 import { AgevalidatorService } from '../services/agevalidator.service';
 import { HeightvalidatorService } from '../services/heightvalidator.service';
+import { OptiFetchService } from '../services/opti-fetch.service';
 import { WeightvalidatorService } from '../services/weightvalidator.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class RequirementsComponent implements OnInit {
 
   constructor(private _requirementsdataService: RequirementsdataService, private _ageValidator: AgevalidatorService
     , private _heightValidator: HeightvalidatorService
-    , private _WeightValidator: WeightvalidatorService) {
+    , private _WeightValidator: WeightvalidatorService
+    , private _optiFetch: OptiFetchService) {
   }
 
   public tdee = 0;

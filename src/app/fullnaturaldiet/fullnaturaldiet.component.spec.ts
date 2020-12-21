@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { FullnaturaldietComponent } from './fullnaturaldiet.component';
 
@@ -6,7 +6,7 @@ describe('FullnaturaldietComponent', () => {
   let component: FullnaturaldietComponent;
   let fixture: ComponentFixture<FullnaturaldietComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ FullnaturaldietComponent ]
     })

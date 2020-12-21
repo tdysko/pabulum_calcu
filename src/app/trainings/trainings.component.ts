@@ -40,7 +40,7 @@ export class TrainingsComponent {
 
     fileReader.onload = () => {
       that.gpxtext = fileReader.result;
-      let gpxBuilder = that.parseFile(that.gpxtext);
+      //let gpxBuilder = that.parseFile(that.gpxtext);
       //that.calculateSummary(gpxBuilder.trk[0].trkseg[0].trkpt);
       console.log(that.fileToUpload);
       that.culculateLeaflySummary(that.gpxtext);

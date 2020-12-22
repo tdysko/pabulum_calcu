@@ -1,5 +1,17 @@
-<input type="file" (change)="handleFileInput($event.target.files)" />
-<input type="button" (click)="read()" value="read" />
-<div id="ocrReaded">
+<div class="form-group" style="font: 1.2vw solid black">
+    <label for="file"
+        style="font-weight: bold; border: 3px solid black; padding: .6em; padding-left: .8em; padding-right: .8em; border-radius: 25px; box-shadow: 2px 12px 34px">Choose
+        File</label>
+    <br />
+    <br />
+    <input type="file" id="file" style="font: 1.2em solid black; border: 1px solid black"
+        (change)="handleFileInput($event.target.files)">
 
+    <input type="button" id="filee" style="font: 1.2em solid black; border: 1px solid black" (click)="reparse()">
 </div>
+<div id="ocrReaded">
+    <span style="white-space:pre-wrap">
+        {{prsdText}}
+    </span>
+</div>
+<p style="margin-bottom: 2rem; white-space:pre-wrap">{{prsdText}}</p>

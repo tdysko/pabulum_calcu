@@ -174,12 +174,10 @@ export class ShoppingsComponent {
         }
       }
     }
-
     purch.totalPrice = totalPrice;
     purch.price = singularPrice;
     purch.count = count;
     purch.name = name;
-
     return purch;
   }
 

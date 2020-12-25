@@ -31,6 +31,7 @@ import { TrainingsComponent } from './trainings/trainings.component';
 import { ShoppingsComponent } from './shoppings/shoppings.component';
 import { TrainingComponent } from './trainings/training/training.component';
 import { TrainingMapComponent } from './trainings/training/training-map/training-map.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { TrainingMapComponent } from './trainings/training/training-map/training
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
+    HttpClientModule
   ],
   providers: [RequirementsdataService],
   bootstrap: [AppComponent]

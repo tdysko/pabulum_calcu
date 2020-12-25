@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import GPX from 'gpx-parser-builder';
 import * as lflyGPX from 'leaflet-gpx';
+import { OptiFetchService } from '../services/opti-fetch.service';
 import { TrainingSummaryService } from '../services/training-summary.service';
 
 @Component({
@@ -28,7 +29,9 @@ export class TrainingsComponent {
 
   mapCnt: any;
 
-  constructor(private trainingSummaryService: TrainingSummaryService) {
+  constructor(
+    private trainingSummaryService: TrainingSummaryService,
+    private optiFetchService: OptiFetchService) {
 
   }
 
@@ -117,11 +120,18 @@ export class TrainingsComponent {
       this.totalDistance = this.totalDistance + wayPointDistance;
     }
 
-
     this.totalTime = track[track.length - 1].time - track[0].time;
     let avgSpeed: number = (this.totalDistance / (track[track.length - 1].time - track[0].time)) * 60 * 60 * 1000;
 
     this.avgSpeed = parseFloat(avgSpeed.toString().substring(0, avgSpeed.toString().indexOf('.') + 3));
+  }
+
+  saveWorkout() {
+    this.optiFetchService.saveWorkout(
+      this.totalDistance,
+      this.totalTime,
+      this.movingTime,
+      this.avgSpeed);
   }
 
   parseFile(fileString: any) {

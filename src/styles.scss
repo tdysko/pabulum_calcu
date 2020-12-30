@@ -1,3 +1,6 @@
+@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
+
 /* You can add global styles to this file, and also import other style files */
 body, html {
     height: 100%;
@@ -36,4 +39,3 @@ section {
 .shadow-type {
     box-shadow: 5px 0px 25px;
 }
-

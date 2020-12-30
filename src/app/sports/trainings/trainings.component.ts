@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import GPX from 'gpx-parser-builder';
 import * as lflyGPX from 'leaflet-gpx';
-import { OptiFetchService } from '../services/opti-fetch.service';
-import { TrainingSummaryService } from '../services/training-summary.service';
+import { OptiFetchService } from '../../services/opti-fetch.service';
+import { TrainingSummaryService } from '../../services/training-summary.service';
 
 @Component({
   selector: 'app-trainings',
@@ -32,7 +32,11 @@ export class TrainingsComponent {
   constructor(
     private trainingSummaryService: TrainingSummaryService,
     private optiFetchService: OptiFetchService) {
+  }
 
+  handleSave() {
+    console.log('save');
+    this.optiFetchService.saveWorkout(this.totalDistance, this.totalTime, this.avgMovingSpeed, this.avgSpeed).subscribe();
   }
 
   handleFileInput(files: FileList) {

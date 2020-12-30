@@ -1,13 +1,18 @@
 <div class="training-container">
     <div class="form-group" style="font: 1.2vw solid black">
         <label for="file"
-            style="font-weight: bold; border: 3px solid black; padding: .6em; padding-left: .8em; padding-right: .8em; border-radius: 25px; box-shadow: 2px 12px 34px">Choose
+            style="font-weight: bold; border: 2px solid black; padding: .1em; padding-left: .8em; padding-right: .8em; border-radius: 25px; box-shadow: 2px 12px 34px">Choose
             File</label>
+        <label (click)="handleSave()"
+            style="font-weight: bold; border: 2px solid black; padding: .1em; padding-left: .8em; padding-right: .8em; border-radius: 25px; box-shadow: 2px 12px 34px; margin-left: 1em">
+            Save</label>
         <br />
         <br />
         <input type="file" id="file" style="font: 1.2em solid black; border: 1px solid black"
             (change)="handleFileInput($event.target.files)">
         <div style="float: right">{{fileToUpload?.name}}</div>
+        <br />
+        <br />
     </div>
     <br />
     <br />

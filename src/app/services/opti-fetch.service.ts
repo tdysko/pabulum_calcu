@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { RequirementsData } from 'src/app/requirementsdata.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { RequirementsData } from 'src/app/requirementsdata.service';
 import { environment } from '../../environments/environment.prod';
 
 @Injectable({
@@ -9,29 +9,26 @@ import { environment } from '../../environments/environment.prod';
 })
 export class OptiFetchService {
 
-  configUrl = 'http://localhost:49219';
-
   constructor(private http: HttpClient) { }
 
   public saveWorkout(totalDistance: Number, totalTime: Number, movingSpeed: Number, avgSpeed: Number): Observable<any> {
-    let params = new HttpParams()
-      .set('totalDistance', totalDistance.toString())
-      .set('totalTime', totalTime.toString())
-      .set('movingSpeed', movingSpeed.toString())
-      .set('avgSpeed', avgSpeed.toString());
-
-    return this.http.get<RequirementsData>(environment.sports_url + '/save', { params });
+    let Workout = {
+      TotalTime: totalTime,
+      TotalDistance: totalDistance,
+      AvgMovingSpeed: movingSpeed,
+      AvgSpeed: avgSpeed
+    };
+    return this.http.post<any>(environment.sports_url, Workout);
   }
 
   public readWorkout(id: Number): Observable<any> {
-    let params = new HttpParams();
+    let params = new HttpParams()
+      .set("id", id.toString());
 
-    return this.http.get<RequirementsData>(environment.sports_url + '/read', { params });
+    return this.http.get<any>(environment.sports_url, { params });
   }
 
   public readWorkouts(): Observable<any> {
-    let params = new HttpParams();
-
-    return this.http.get<RequirementsData>(environment.sports_url + '/readAll', { params });
+    return this.http.get<any>(environment.sports_url);
   }
 }

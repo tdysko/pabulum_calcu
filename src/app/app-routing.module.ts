@@ -10,8 +10,9 @@ import { WhattoexpectComponent } from './whattoexpect/whattoexpect.component';
 import { DietBuilderComponent } from './diet-builder/diet-builder.component';
 import { ProductsComponent } from './products/products.component';
 import { MeasuresComponent } from './measures/measures.component';
-import { TrainingsComponent } from './trainings/trainings.component';
+import { TrainingsComponent } from './sports/trainings/trainings.component';
 import { ShoppingsComponent } from './shoppings/shoppings.component';
+import { WorkoutsComponent } from './sports/workouts/workouts.component';
 
 const routes: Routes = [
   { path: 'trainings', component: TrainingsComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'shoppings', component: ShoppingsComponent },
   { path: '', component: HomeComponent },
   { path: 'whattoexpect', component: WhattoexpectComponent },
-  { path: 'measures', component: MeasuresComponent }
+  { path: 'measures', component: MeasuresComponent },
+  { path: 'workouts', component: WorkoutsComponent }
 ];
 
 @NgModule({

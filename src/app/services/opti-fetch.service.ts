@@ -13,7 +13,7 @@ export class OptiFetchService {
 
   public saveWorkout(workout: Workout): Observable<any> {
     console.log('saving workout');
-    console.log(Workout);
+    console.log(workout);
     return this.http.post<any>(environment.sports_url, workout);
   }
 

@@ -3,48 +3,48 @@
     <div class="grid-container">
         <div>
             <div>Total time</div>
-            <div class="grid-cell-value">{{this.workout.totalTime === 0 ? '00:00:00' : this.totalTime}}
+            <div class="grid-cell-value">{{this.TotalTime === 0 ? '00:00:00' : this.TotalTime}}
             </div>
         </div>
         <div>
             <div>Moving time</div>
-            <div class="grid-cell-value">{{workout.movingTime === 0 ? '00:00:00' : this.movingTime}}</div>
+            <div class="grid-cell-value">{{this.MovingTime === 0 ? '00:00:00' : this.MovingTime}}</div>
         </div>
         <div>
             <div>Total distance</div>
-            <div class="grid-cell-value">{{workout.totalDistance | number : '1.2-2'}} km</div>
+            <div class="grid-cell-value">{{workout.TotalDistance | number : '1.2-2'}} km</div>
         </div>
         <div>
             <div>Average speed</div>
-            <div class="grid-cell-value">{{workout.avgSpeed | number : '1.2-2'}} km / h</div>
+            <div class="grid-cell-value">{{workout.AvgSpeed | number : '1.2-2'}} km / h</div>
         </div>
         <div>
             <div>Average moving speed</div>
-            <div class="grid-cell-value">{{workout.avgMovingSpeed | number : '1.2-2'}} km / h</div>
+            <div class="grid-cell-value">{{workout.AvgMovingSpeed | number : '1.2-2'}} km / h</div>
         </div>
         <div>
             <div>Lowest elevation</div>
-            <div class="grid-cell-value">{{workout.lowestElevation | number : '1.2-2'}} m</div>
+            <div class="grid-cell-value">{{workout.LowestElevation | number : '1.2-2'}} m</div>
         </div>
         <div>
             <div>Highest elevation</div>
-            <div class="grid-cell-value">{{workout.highestElevation | number : '1.2-2'}} m</div>
+            <div class="grid-cell-value">{{workout.HighestElevation | number : '1.2-2'}} m</div>
         </div>
         <div>
             <div>Average heart rate</div>
-            <div class="grid-cell-value">{{workout.avgHr | number : '1.2-2'}} m</div>
+            <div class="grid-cell-value">{{workout.AvgHeartRate | number : '1.2-2'}} m</div>
         </div>
         <div>
             <div>Elevation gain</div>
-            <div class="grid-cell-value">{{workout.elevationGain | number : '1.2-2'}} m</div>
+            <div class="grid-cell-value">{{workout.ElevationGain | number : '1.2-2'}} m</div>
         </div>
         <div>
             <div>Elevation drop</div>
-            <div class="grid-cell-value">{{workout.elevationLoss | number : '1.2-2'}} m</div>
+            <div class="grid-cell-value">{{workout.ElevationDrop | number : '1.2-2'}} m</div>
         </div>
         <div>
             <div>Max speed</div>
-            <div class="grid-cell-value">{{workout.maxSpeed | number : '1.2-2'}} km / h</div>
+            <div class="grid-cell-value">{{workout.MaxSpeed | number : '1.2-2'}} km / h</div>
         </div>
     </div>
 </div>

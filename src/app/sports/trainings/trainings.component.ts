@@ -27,7 +27,7 @@ export class TrainingsComponent {
   constructor(
     private trainingSummaryService: TrainingSummaryService,
     private optiFetchService: OptiFetchService) {
-    this.workout = new Workout(0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    this.workout = new Workout(0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, null, '');
   }
 
   handleSave() {
@@ -42,6 +42,7 @@ export class TrainingsComponent {
 
     fileReader.onload = () => {
       that.gpxtext = fileReader.result;
+
       let gpxBuilder = that.parseFile(that.gpxtext);
 
       that.calculateSummary(gpxBuilder.trk[0].trkseg[0].trkpt);
@@ -54,8 +55,7 @@ export class TrainingsComponent {
     this.configureLeafly();
 
     let that = this;
-
-    var gpx = new lflyGPX.GPX(gpxFile, {
+    new lflyGPX.GPX(gpxFile, {
       async: true,
       marker_options: {
         startIconUrl: '',
@@ -71,8 +71,6 @@ export class TrainingsComponent {
   fillSummaryFields(e) {
     this.mapCnt.fitBounds(e.target.getBounds());
 
-    console.log('total time: ' + e.target.get_total_time());
-
     this.workout = new Workout(e.target.get_distance() / 1000,
       e.target.get_total_speed(),
       e.target.get_total_time(),
@@ -85,11 +83,18 @@ export class TrainingsComponent {
       e.target.get_elevation_gain(),
       e.target.get_elevation_loss(),
       e.target.get_average_hr(),
-      e.target.get_average_cadence(),
-      e.target.get_average_temp()
+      e.target.get_end_time(),
+      this.gpxtext
     );
+  }
 
-    console.log(this.workout);
+  getFileByteArray(fileText) {
+    const bytes = [];
+    for (var ii = 0; ii < fileText.length; ii++) {
+      const code = fileText.charCodeAt(ii); // x00-xFFFF
+      bytes.push(code & 255, code >> 8); // low, high
+    }
+    return bytes;
   }
 
   calculateSummary(track: Array<any>) {

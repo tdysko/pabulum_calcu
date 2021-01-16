@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Module } from 'ag-grid-community';
 import { OptiFetchService } from 'src/app/services/opti-fetch.service';
 
@@ -7,20 +7,27 @@ import { OptiFetchService } from 'src/app/services/opti-fetch.service';
   templateUrl: './workouts.component.html',
   styleUrls: ['./workouts.component.sass']
 })
-export class WorkoutsComponent {
+export class WorkoutsComponent implements OnInit {
   private gridApi;
   private gridColumnApi;
 
   public modules: Module[] = null;
   columnDefs = [
-    { field: 'make', suppressSizeToFit: true },
-    { field: 'model' },
-    { field: 'price' }
+    { field: 'TotalDistance', headerName: 'Distance' },
+    { field: 'IdSportsNavigation.Name', headerName: 'Sport' },
+    { field: 'Date', headerName: 'Date' }
   ];
   defaultColDef = { resizable: true };
   rowData = [];
 
   constructor(private optiFetchService: OptiFetchService) { }
+
+  ngOnInit() {
+    let that = this;
+    this.optiFetchService.readWorkouts().subscribe((data) => {
+      that.rowData = data;
+    });
+  }
 
   sizeToFit() {
     this.gridApi.sizeColumnsToFit();

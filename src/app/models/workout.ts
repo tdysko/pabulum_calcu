@@ -1,20 +1,21 @@
 export class Workout {
-    totalDistance: Number = 0;
-    avgSpeed: Number = 0;
-    totalTime: number = 0;
-    workoutName: String = '';
-    maxSpeed: number = 0;
+    TotalDistance: Number = 0;
+    AvgSpeed: Number = 0;
+    TotalTime: Number = 0;
+    WorkoutName: String = '';
+    MaxSpeed: Number = 0;
+    File: any;
 
-    movingTime: any = 0;
-    avgMovingSpeed: any = 0;
-    lowestElevation: any = 0;
-    highestElevation: any = 0;
-    elevationGain: any = 0;
-    elevationLoss: any = 0;
-    avgHr: any = 0;
-    avgCadence: any = 0;
-    avgTemp: any = 0;
-    displayTotalTime: any;
+    MovingTime: Number = 0;
+    AvgMovingSpeed: Number = 0;
+    LowestElevation: Number = 0;
+    HighestElevation: Number = 0;
+    ElevationGain: any = 0;
+    ElevationDrop: any = 0;
+    AvgHeartRate: Number = 0;
+    WorkoutType: String;
+
+    Date: Date;
 
     constructor(totalDistance: Number,
         avgSpeed: Number,
@@ -28,21 +29,21 @@ export class Workout {
         elevationGain: any,
         elevationLoss: any,
         avgHr: any,
-        avgCadence: any,
-        avgTemp: any) {
-        this.totalDistance = totalDistance;
-        this.avgSpeed = avgSpeed;
-        this.totalTime = totalTime;
-        this.workoutName = workoutName;
-        this.maxSpeed = maxSpeed;
-        this.movingTime = movingTime;
-        this.avgMovingSpeed = avgMovingSpeed;
-        this.lowestElevation = lowestElevation;
-        this.highestElevation = highestElevation;
-        this.elevationGain = elevationGain;
-        this.elevationLoss = elevationLoss;
-        this.avgHr = avgHr;
-        this.avgCadence = avgCadence;
-        this.avgTemp = avgTemp;
+        date: Date,
+        file: any) {
+        this.TotalDistance = totalDistance;
+        this.AvgSpeed = avgSpeed;
+        this.TotalTime = totalTime;
+        this.WorkoutName = workoutName;
+        this.MaxSpeed = maxSpeed;
+        this.MovingTime = movingTime;
+        this.AvgMovingSpeed = avgMovingSpeed;
+        this.LowestElevation = lowestElevation;
+        this.HighestElevation = highestElevation;
+        this.ElevationGain = elevationGain;
+        this.ElevationDrop = elevationLoss;
+        this.AvgHeartRate = avgHr;
+        this.Date = date;
+        this.File = file;
     }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Observable, fromEvent, Subject } from 'rxjs';
-import { Product } from '../product.model';
+import { Subject } from 'rxjs';
+import { Product } from '../models/product.model';
 import { ProductsService } from '../services/products.service';
 
 @Component({

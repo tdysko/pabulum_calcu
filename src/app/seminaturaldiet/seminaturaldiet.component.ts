@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RequirementsdataService, RequirementsData } from '../requirementsdata.service';
+import { RequirementsdataService, RequirementsData } from '../services/requirementsdata.service';
 
 @Component({
   selector: 'app-seminaturaldiet',

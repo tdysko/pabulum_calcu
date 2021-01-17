@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DetailsDisplayComponent } from '../../details-display.component';
-import { Product } from 'src/app/product.model';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-product-display',

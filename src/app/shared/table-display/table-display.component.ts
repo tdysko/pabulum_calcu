@@ -1,5 +1,5 @@
 import { Component, Input, Output } from '@angular/core';
-import { Product } from 'src/app/product.model';
+import { Product } from 'src/app/models/product.model';
 import { Subject } from 'rxjs';
 import { EventEmitter } from '@angular/core';
 

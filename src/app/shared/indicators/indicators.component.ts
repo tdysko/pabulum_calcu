@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { KeyValue } from '@angular/common';
-import { Requirement } from 'src/app/product.model';
+import { Requirement } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-indicators',

@@ -27,4 +27,21 @@ export class OptiFetchService {
   public readWorkouts(): Observable<any> {
     return this.http.get<any>(environment.sports_url);
   }
+
+  public saveShopping(workout: Workout): Observable<any> {
+    console.log('saving workout');
+    console.log(workout);
+    return this.http.post<any>(environment.shoppings_url, workout);
+  }
+
+  public readShopping(id: Number): Observable<any> {
+    let params = new HttpParams()
+      .set("id", id.toString());
+
+    return this.http.get<any>(environment.shoppings_url, { params });
+  }
+
+  public readShoppings(): Observable<any> {
+    return this.http.get<any>(environment.shoppings_url);
+  }
 }

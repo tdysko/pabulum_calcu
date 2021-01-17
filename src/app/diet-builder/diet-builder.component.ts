@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ProductsService } from '../services/products.service';
-import { Product } from '../product.model';
-import { RequirementsdataService } from '../requirementsdata.service';
+import { Product } from '../models/product.model';
+import { RequirementsdataService } from '../services/requirementsdata.service';
 
 @Component({
   selector: 'app-diet-builder',

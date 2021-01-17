@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IndicatorsComponent } from '../indicators.component';
-import { Product, Requirement } from 'src/app/product.model';
+import { Product, Requirement } from 'src/app/models/product.model';
 import { Subject } from 'rxjs';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
-import { RequirementsdataService } from '../requirementsdata.service';
+import { RequirementsdataService } from '../services/requirementsdata.service';
 import { AgevalidatorService } from '../services/agevalidator.service';
 import { HeightvalidatorService } from '../services/heightvalidator.service';
 import { WeightvalidatorService } from '../services/weightvalidator.service';

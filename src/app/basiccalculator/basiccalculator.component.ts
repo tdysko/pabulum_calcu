@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { RequirementsdataService } from '../requirementsdata.service';
+import { RequirementsdataService } from '../services/requirementsdata.service';
 
 @Component({
   selector: 'app-basiccalculator',

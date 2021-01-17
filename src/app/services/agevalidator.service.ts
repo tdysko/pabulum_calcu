@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FieldvalidationService } from './fieldvalidation.service';
-import { Validationmessage } from '../validationmessage.service';
+import { Validationmessage } from './validationmessage.service';
 
 @Injectable({
   providedIn: 'root'

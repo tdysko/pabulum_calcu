@@ -16,7 +16,7 @@ import { FullnaturaldietComponent } from './fullnaturaldiet/fullnaturaldiet.comp
 import { SeminaturaldietComponent } from './seminaturaldiet/seminaturaldiet.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
-import { RequirementsdataService } from './requirementsdata.service';
+import { RequirementsdataService } from './services/requirementsdata.service';
 import { BasiccalculatorComponent } from './basiccalculator/basiccalculator.component';
 import { AdvancedcalculatorComponent } from './advancedcalculator/advancedcalculator.component';
 import { WhattoexpectComponent } from './whattoexpect/whattoexpect.component';
@@ -35,6 +35,9 @@ import { ShoppingsComponent } from './shoppings/shoppings.component';
 import { TrainingMapComponent } from './sports/trainings/training/training-map/training-map.component';
 import { CommonTableComponent } from './shared/common-table/common-table.component';
 import { WorkoutsComponent } from './sports/workouts/workouts.component';
+import { BasicGridComponent } from './shared/basic-grid/basic-grid.component';
+import { OcrService } from './services/ocr.service';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,8 @@ import { WorkoutsComponent } from './sports/workouts/workouts.component';
     TrainingComponent,
     TrainingMapComponent,
     CommonTableComponent,
-    WorkoutsComponent
+    WorkoutsComponent,
+    BasicGridComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +79,7 @@ import { WorkoutsComponent } from './sports/workouts/workouts.component';
     BrowserAnimationsModule,
     AutocompleteLibModule
   ],
-  providers: [RequirementsdataService],
+  providers: [RequirementsdataService, OcrService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

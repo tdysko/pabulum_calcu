@@ -24,18 +24,18 @@ export class BasicProductIndicatorsComponent extends IndicatorsComponent impleme
 
   ngOnInit(): void {
     this.heights = [
-      { key: 'proteins', value: 24 },
-      { key: 'carbs', value: 43 },
-      { key: 'fats', value: 8 }
+      { key: 'Proteins', value: 24 },
+      { key: 'Carbohydrates', value: 43 },
+      { key: 'Fats', value: 8 }
     ];
 
     this.indicatorHeights = {} as Product;
     this.indicatorRadiuses = {} as Product;
 
     this.requirements = {} as Requirement;
-    this.requirements.proteins = 24;
-    this.requirements.carbs = 44;
-    this.requirements.fats = 8;
+    this.requirements.Proteins = 24;
+    this.requirements.Carbohydrates = 44;
+    this.requirements.Fats = 8;
     this.setIndicatorsInitialHeights();
 
     this.observe.subscribe((x: Product) => {
@@ -45,6 +45,12 @@ export class BasicProductIndicatorsComponent extends IndicatorsComponent impleme
   }
 
   setIndicatorsHeights(): void {
+    console.log('properties');
+    console.log(Object.keys(this.product));
+
+
+
+
     for (const property of Object.keys(this.product)) {
       this.indicatorHeights[property] =
         ((this.getIndicatorHeight(property) / 1) * 100) > 4 ?
@@ -73,10 +79,6 @@ export class BasicProductIndicatorsComponent extends IndicatorsComponent impleme
 
     ratio = (ratio / 1) * 25;
 
-    console.log('calced ratio: ' + ratio.toString());
-
-    console.log('ratio key: ' + key + ' ' + ratio.toString());
-
     return ratio;
   }
 
@@ -99,8 +101,12 @@ export class BasicProductIndicatorsComponent extends IndicatorsComponent impleme
   }
 
   getIndicatorHeight(key: string): number {
-    console.log();
+    // console.log('requirements');
+    // console.log(this.requirements);
+    // console.log('product');
+    // console.log(this.product);
+    // console.log('key');
+    // console.log(key);
     return this.product[key] / this.requirements[key];
   }
-
 }

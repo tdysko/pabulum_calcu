@@ -1,15 +1,15 @@
-<div style="text-align: center; padding-top: 55px; position: absolute; right: 0; top: 0; height: 100%; width: 100%">
+<div style="text-align: center; padding-top: 55px; height: 100%; width: 100%">
     <div class="displayTextName" style="box-shadow: 0 0 15px">
-        {{detail.name | slice:0:35}}
+        {{detail.Product1 | slice:0:35}}
     </div>
     <div class="displayText">
-        Proteins: {{detail.proteins}}
+        Proteins: {{detail.Proteins}}
     </div>
     <div class="displayText">
-        Carbohydrates: {{detail.carbs}}
+        Carbohydrates: {{detail.Carbohydrates}}
     </div>
     <div class="displayText">
-        Fats: {{detail.fats}}
+        Fats: {{detail.Fats}}
     </div>
     <div style="height: 40%; overflow: hidden; position: relative">
         <app-basic-product-indicators [dataSource]="detail" [requirements]="" [observe]="observe"

@@ -9,11 +9,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let product of dataSource" [ngClass]="{'highlight': selectedRowIndex == product.id}"
+                <tr *ngFor="let product of dataSource" [ngClass]="{'highlight': selectedRowIndex == product.Id}"
                     (click)="rowClick(product)">
-                    <td style="width: 24px">{{ product.name }}</td>
-                    <td>{{ product.proteins }}</td>
-                    <td>{{ product.carbs }}</td>
+                    <td style="width: 24px">{{ product.Product1 }}</td>
+                    <td>{{ product.Proteins }}</td>
+                    <td>{{ product.Carbohydrates }}</td>
                     <td>{{ product.fats }}</td>
                 </tr>
             </tbody>

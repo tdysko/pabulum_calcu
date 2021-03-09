@@ -40,13 +40,12 @@ export class ShoppingsComponent {
       });
 
       that.rowData = data;
+      console.log(that.rowData);
     });
   }
 
   reparse() {
-    console.log('reparse');
     let ParsedArray = this.ocrService.parseArray(this.originalLines);
-    console.log('reparsed');
     this.originalLines = ParsedArray;
 
     let that = this;
@@ -73,19 +72,13 @@ export class ShoppingsComponent {
       await worker.loadLanguage('pol');
       await worker.initialize('pol');
 
-      console.log(that.fileToUpload);
-      console.log('reading');
       const { data: { text } } = await worker.recognize(that.fileToUpload);
       that.prsdText = text;
-      console.log(text);
-      console.log(that.prsdText);
 
       that.originalLines = that.prsdText.split("\n");
       that.parsedLines = that.prsdText.split("\n");
-      console.log(that.parsedLines);
       that.ocrService.parseArray(that.parsedLines);
 
-      console.log('finished reading');
       worker.terminate();
     };
 

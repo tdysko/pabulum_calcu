@@ -23,12 +23,12 @@ export class TableDisplayComponent {
   }
 
   highlight(row: Product): void {
-    this.selectedRowIndex = row.id;
+    this.selectedRowIndex = row.Id;
   }
 
   getProduct(id: number): Product {
     for (const product of this.dataSource) {
-      if (product.id === this.selectedRowIndex) {
+      if (product.Id === this.selectedRowIndex) {
         return product;
       }
     }

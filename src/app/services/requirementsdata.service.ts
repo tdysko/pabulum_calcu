@@ -126,7 +126,6 @@ export class RequirementsdataService {
         this.EPOC = 0.065 * this.BMR;
       }
     }
-    console.log('epoc' + this.EPOC);
     return this.EPOC;
   }
 

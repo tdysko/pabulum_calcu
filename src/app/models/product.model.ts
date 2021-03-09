@@ -1,9 +1,9 @@
 export interface Product {
-    id: number;
-    name: string;
-    proteins: number;
-    carbs: number;
-    fats: number;
+    Id: number;
+    Product1: string;
+    Proteins: number;
+    Carbohydrates: number;
+    Fats: number;
 }
 
 export interface Requirement extends Product {

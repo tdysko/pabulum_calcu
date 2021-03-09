@@ -7,10 +7,10 @@ import { RequirementsdataService } from '../services/requirementsdata.service';
   styleUrls: ['./basiccalculator.component.scss']
 })
 export class BasiccalculatorComponent implements OnInit {
-  @Input() Waga: number;
-  @Input() Wzrost: number;
-  @Input() Plec: number;
-  @Input() Wiek: number;
+  @Input() Waga: number = 67;
+  @Input() Wzrost: number = 166;
+  @Input() Plec: number = 31;
+  @Input() Wiek: number = 31;
   @Input() Goal = 2;
 
   @Output() public childWagaEvent = new EventEmitter();
@@ -32,7 +32,6 @@ export class BasiccalculatorComponent implements OnInit {
     this.rds.setGoal(this.Goal);
   }
   WeightChange() {
-    console.log('weight change: ' + this.Waga);
     this.rds.setWeight(this.Waga);
     this.childWagaEvent.emit(this.Waga);
   }

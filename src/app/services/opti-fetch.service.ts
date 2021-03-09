@@ -44,4 +44,8 @@ export class OptiFetchService {
   public readShoppings(): Observable<any> {
     return this.http.get<any>(environment.shoppings_url);
   }
+
+  public readProducts(): Observable<any> {
+    return this.http.get<any>(environment.products_url);
+  }
 }

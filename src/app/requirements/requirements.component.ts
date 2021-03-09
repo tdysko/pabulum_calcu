@@ -17,16 +17,16 @@ export class RequirementsComponent implements OnInit {
   }
 
   public tdee = 0;
-  public weight: number;
-  public height: number;
-  public sex: number;
-  public age: number;
+  public weight: number = 67;
+  public height: number = 166;
+  public sex: number = 1;
+  public age: number = 31;
   public time = 0;
   public intensity = 0;
   public workouttype = 0;
   public lifestyle = 0;
   public metabolism = 0;
-  public goal = 0;
+  public goal = 2;
 
   rds: RequirementsdataService;
   advancedcalc = false;

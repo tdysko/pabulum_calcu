@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Module } from 'ag-grid-community';
 
 @Component({
@@ -14,6 +14,8 @@ export class BasicGridComponent {
   @Input() columnDefs = [];
   @Input() defaultColDef = {};
   @Input() rowData = [];
+
+  @Output() public rowClickEvent = new EventEmitter();
 
   sizeToFit() {
     this.gridApi.sizeColumnsToFit();
@@ -31,5 +33,9 @@ export class BasicGridComponent {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     this.sizeToFit();
+  }
+
+  rowClicked(event) {
+    this.rowClickEvent.emit(event);
   }
 }

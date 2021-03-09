@@ -26,20 +26,20 @@
             <tbody>
                 <tr *ngFor="let product of dietProducts; let i = index" style="line-height: 5%">
                     <td>
-                        <p class="form-control-name">{{product.name}}</p>
+                        <p class="form-control-name">{{product.Product1}}</p>
                     </td>
                     <td>
-                        <p class="form-control">{{product.proteins}}</p>
+                        <p class="form-control">{{product.Proteins}}</p>
                     </td>
                     <td>
-                        <p class="form-control">{{product.carbs}}</p>
+                        <p class="form-control">{{product.Carbohydrates}}</p>
                     </td>
                     <td>
-                        <p class="form-control">{{product.fats}}</p>
+                        <p class="form-control">{{product.Fats}}</p>
                     </td>
                     <td>
                         <p class="form-control-delete">
-                            {{ (product.proteins * 4 + product.carbs * 4 + product.fats * 9).toPrecision(5) }}
+                            {{ (product.Proteins * 4 + product.Carbohydrates * 4 + product.Fats * 9).toPrecision(5) }}
                         </p>
                     </td>
                     <td style="text-align: center; margin: auto">
@@ -52,13 +52,13 @@
     <div style="text-align: center; height: 100%; width: 25%; float: right; border: 2px solid forestgreen; 
         border-radius: 25px; margin-top: 5px; box-shadow: 5px 0px 25px">
         <div class="ng-autocomplete">
-            <ng-autocomplete [data]="data" [searchKeyword]="keyword" (selected)='selectEvent($event)'
-                (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
-                [notFoundTemplate]="notFoundTemplate">
+            <ng-autocomplete [data]="this.productsService.products" [searchKeyword]="keyword"
+                (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)'
+                (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
             </ng-autocomplete>
 
             <ng-template #itemTemplate let-item>
-                <a [innerHTML]="item.name"></a>
+                <a [innerHTML]="item.Product1"></a>
             </ng-template>
 
             <ng-template #notFoundTemplate let-notFound>

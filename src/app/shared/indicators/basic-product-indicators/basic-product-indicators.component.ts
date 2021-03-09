@@ -45,12 +45,6 @@ export class BasicProductIndicatorsComponent extends IndicatorsComponent impleme
   }
 
   setIndicatorsHeights(): void {
-    console.log('properties');
-    console.log(Object.keys(this.product));
-
-
-
-
     for (const property of Object.keys(this.product)) {
       this.indicatorHeights[property] =
         ((this.getIndicatorHeight(property) / 1) * 100) > 4 ?

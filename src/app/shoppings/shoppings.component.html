@@ -15,7 +15,8 @@
     </span>
 </div>
 <p style="margin-bottom: 2rem; white-space:pre-wrap">{{prsdText}}</p>
-
-<app-basic-grid [modules]="modules" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" [rowData]="rowData"
-    (gridReady)="onGridReady($event)">
-</app-basic-grid>
+<div style="height: 24em">
+    <app-basic-grid [modules]="modules" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" [rowData]="rowData"
+        (gridReady)="onGridReady($event)">
+    </app-basic-grid>
+</div>

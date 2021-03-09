@@ -8,4 +8,9 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'Diet Home';
+  bottomBarText: string = 'Your requirements are unknown. Use conditions functionality to calculate';
+
+  constructor() {
+
+  }
 }

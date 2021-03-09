@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { ProductsService } from '../services/products.service';
 import { Product } from '../models/product.model';
 import { RequirementsdataService } from '../services/requirementsdata.service';
@@ -8,9 +8,9 @@ import { RequirementsdataService } from '../services/requirementsdata.service';
   templateUrl: './diet-builder.component.html',
   styleUrls: ['./diet-builder.component.scss']
 })
-export class DietBuilderComponent implements OnInit {
+export class DietBuilderComponent {
 
-  private keyword = 'name';
+  private keyword = 'Product1';
   private data = this.productsService.products;
   private dietProducts: Array<Product> = new Array<Product>();
   private dietSummary: Product;
@@ -24,9 +24,7 @@ export class DietBuilderComponent implements OnInit {
       Carbohydrates: 0,
       Fats: 0
     };
-  }
-
-  ngOnInit() {
+    this.data = this.productsService.products;
   }
 
   selectEvent(item) {
@@ -79,6 +77,8 @@ export class DietBuilderComponent implements OnInit {
   }
 
   onChangeSearch(val: string) {
+    console.log('change seearch');
+    console.log(this.productsService.products);
     // fetch remote data from here
     // And reassign the 'data' which is binded to 'data' property.
   }

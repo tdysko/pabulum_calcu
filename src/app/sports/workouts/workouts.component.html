@@ -1,3 +1,5 @@
+<style>
+</style>
 <div class="form-group" style="font: 1.2vw solid black">
     <label for="file"
         style="font-weight: bold; border: 2px solid black; padding: .1em; padding-left: .8em; padding-right: .8em; border-radius: 25px; box-shadow: 2px 12px 34px">
@@ -15,6 +17,9 @@
     </span>
 </div>
 <p style="margin-bottom: 2rem; white-space:pre-wrap">{{prsdText}}</p>
-<app-basic-grid [modules]="modules" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" [rowData]="rowData"
-    (gridReady)="onGridReady($event)">
-</app-basic-grid>
+
+<div style="height: 24em">
+    <app-basic-grid [modules]="modules" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" [rowData]="rowData"
+        (gridReady)="onGridReady($event)" (rowClickEvent)="onRowClicked($event)">
+    </app-basic-grid>
+</div>

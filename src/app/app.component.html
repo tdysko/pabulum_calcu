@@ -1,8 +1,14 @@
 <app-nav></app-nav>
-
 <section>
   <router-outlet></router-outlet>
 </section>
-<div style="position: absolute; bottom: 2.5%; right: 7.2%">
-  Diet outpost ver. 1.0.0
-</div>
+<footer style="
+  border-bottom: 4px solid black; border-top: 4px solid black; background-color: whitesmoke; box-shadow: 2px 12px 24px;
+  bottom: 0.5%; position: absolute; width: 100%; padding: 0; margin: 0; border-right: 0; border-left: 0">
+  <div style="float: right; padding-top: 0.7em; padding-bottom: 0.6em; padding-right: 1.3em">
+    Diet outpost ver. 1.0.1
+  </div>
+  <div style="float: right; padding-top: 0.7em; padding-bottom: 0.6em; padding-right: 1.3em">
+    {{bottomBarText}}
+  </div>
+</footer>
